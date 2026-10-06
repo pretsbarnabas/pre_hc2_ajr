@@ -23,12 +23,15 @@ set(ament_dependencies
 
 # add_executable(simple_sub_node src/print_pose.cpp)
 # ament_target_dependencies(simple_sub_node ${ament_dependencies} )
+add_executable(gen_point src/gen_point.cpp)
+ament_target_dependencies(gen_point ${ament_dependencies})
 
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
 # simple_sub_node
+gen_point
 DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
