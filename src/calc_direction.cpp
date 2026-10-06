@@ -9,7 +9,7 @@ class CardinalDirection : public rclcpp::Node
         rclcpp::Subscription<geometry_msgs::msg::Point>::SharedPtr subscription;
         std::unique_ptr<geometry_msgs::msg::Point> prev_point;
     public:
-        CardinalDirection() : Node("cardinal_direction")
+        CardinalDirection() : Node("calc_direction")
         {
             publisher = this->create_publisher<std_msgs::msg::String>("cardinal_direction", 1);
             subscription = this->create_subscription<geometry_msgs::msg::Point>("point", 1, std::bind(&CardinalDirection::topic_callback, this, std::placeholders::_1));
@@ -31,20 +31,20 @@ class CardinalDirection : public rclcpp::Node
             if(prev_point->x == msg->x && prev_point->y == msg->y){
                 message.data = "Object did not move";
             }
-
-            if(prev_point->x > msg->x){
+            
+            if(prev_point->y < msg->y){
                 message.data += "North";
             }
-            else if(prev_point->x < msg->x){
+            else if(prev_point->y > msg->y){
                 message.data += "South";
             }
-
-            if(prev_point->y > msg->y){
+            if(prev_point->x < msg->x){
                 message.data += "East";
             }
-            else if(prev_point->y < msg->y){
+            else if(prev_point->x > msg->x){
                 message.data += "West";
             }
+
 
             RCLCPP_INFO(this->get_logger(), "Publishing direction change");
             publisher->publish(message);

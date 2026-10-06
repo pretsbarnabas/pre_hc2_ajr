@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(pre_hc2_ajr)
+project(cardinal_direction)
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
@@ -26,8 +26,8 @@ set(ament_dependencies
 add_executable(gen_point src/gen_point.cpp)
 ament_target_dependencies(gen_point ${ament_dependencies})
 
-add_executable(cardinal_direction src/calc_direction.cpp)
-ament_target_dependencies(cardinal_direction ${ament_dependencies})
+add_executable(calc_direction src/calc_direction.cpp)
+ament_target_dependencies(calc_direction ${ament_dependencies})
 
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME})
@@ -35,7 +35,7 @@ install(DIRECTORY launch
 install(TARGETS
 # simple_sub_node
 gen_point
-cardinal_direction
+calc_direction
 DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

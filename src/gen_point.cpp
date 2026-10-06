@@ -10,8 +10,8 @@ int main(int argc, char * argv[])
     auto point_pub = node->create_publisher<geometry_msgs::msg::Point>("point", 1);
     auto point = std::make_shared<geometry_msgs::msg::Point>();
     point->z = 10.0;
-    std::vector<std::vector<float>> positions = {{10.0,10.0}, {11.0,10.0}, {12.0, 11.0}, {12.0, 12.0}, {11.0, 13.0}, {10.0, 13.0}, {9.0, 12.0}, {9.0, 11.0}};
-    rclcpp::WallRate loop_rate(5);
+    std::vector<std::vector<float>> positions = {{10.0,10.0}, {10.0,10.0}, {10.0,11.0}, {11.0,12.0}, {12.0, 12.0}, {13.0, 11.0}, {13.0, 10.0}, {12.0, 9.0}, {11.0, 9.0}};
+    rclcpp::WallRate loop_rate(2);
     while (rclcpp::ok())
     {
         for(size_t i = 0; i<positions.size(); i++){
