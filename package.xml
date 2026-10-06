@@ -2,9 +2,9 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>cardinal_direction</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="todo@todo.com">TODO:</maintainer>
+  <version>1.0.0</version>
+  <description>Calculates cardinal direction</description>
+  <maintainer email="prets.barnabas@gmail.com">TODO:</maintainer>
   <license>GNU General Public License v3.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
