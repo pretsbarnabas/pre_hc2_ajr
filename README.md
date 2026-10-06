@@ -1,5 +1,9 @@
 # `cardinal_direction` package
 ROS 2 C++ package.  [![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
+
+A package két node-ból áll. A `/gen_point` koordinátákat generál, amit egy `geometry_msgs/Point` topic-ban hirdet. A `/calc_direction` feliratkozik erre a topicra, és egy `std_msgs/String` topicban kihirdeti, hogy melyik égtájba történt változás. 
+
+Megvalósítás `ROS 2 Humble` alatt.
 ## Packages and build
 
 It is assumed that the workspace is `~/ros2_ws/`.
